@@ -59,6 +59,9 @@
                 case 3:
                     arquivo = "editarMeuPerfil.html";
                     break;
+                case 4:
+                    arquivo = "verAlunos.jsp";
+                    break;
                 default:
                     arquivo = "bemVindo.html";
             }

@@ -4,47 +4,44 @@
     Author     : filipe
 --%>
 
+<%
+    int identificador = 1;
+    String foto = "";
+    String nome = "";
+    String idade = "";
+    String sexo = "";
+    String desconto = "";
+    String bolsista = "";
+    String ativo = "Sim";
+%>
+<h1>Alunos cadastrados</h1>
 
-<%@page contentType="text/html"%>
-<!doctype html>
-<html lang="br">
-    <head>
-        <title>Intranet!</title>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
-    </head>
-    <body>
-        <nav class="navbar navbar-inverse">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span> 
-                    </button>
+<table class='table table-striped'>
+    <thead>
+        <tr>    
+            <th>Foto</th>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th>Sexo</th>
+            <th>Desconto</th>
+            <th>Bolsista</th>
+            <th>Ativo</th>
+            <th>Editar.</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for(int i=0;i<5;i++){ %>
+        <tr>
 
-                    <a class="navbar-brand" href="#"><a class="navbar-brand" href="#">Olá, <span class="capitalize"><%=session.getAttribute("login")%></span></a>
-                </div>
-
-                <div class="collapse navbar-collapse" id="myNavbar">
-
-                    <ul class="nav navbar-nav">
-                        <li><a href="registroAluno.html">Adicionar Aluno</a></li>
-                        <li><a href="registroProfessor.html">Adicionar Professor</a></li>
-                        <li><a href="#">Editar Meu Perfil</a></li>
-                        <li><a href="#">Ver Alunos</a></li>
-                        <li><a href="#">Ver Turmas</a></li>
-                        <li><a href="verificaLogin">Sair <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span></a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-                    <%@include file = "registroAluno.html" %>
-        <!-- jQuery first, then Bootstrap JS -->
-        <script src="bootstrap/js/jquery.min.js"></script>
-        <script src="bootstrap/js/bootstrap.js"></script>
-    </body>
-</html>
+            <td><%= foto%></td>
+            <td><span class='capitalize'><%= nome%></span></td>
+            <td><%= idade%></td>
+            <td><%= sexo%></td>
+            <td><%= desconto%></td>
+            <td><%= bolsista%></td>
+            <td><%= ativo%></td>
+            <td><form action='#' method='POST'><button class='btn btn-default' name='id' type='submit' value='${identtificador}' ><span class='glyphicon glyphicon-pencil'></span></button></form></td>
+        </tr>
+        <% } %>
+    </tbody>
+</table>                
