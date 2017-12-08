@@ -5,6 +5,7 @@
 --%>
 
 <%
+    //Aqui vamos inicializar somente e dentro do loop vamos recuperando do banco
     int identificador = 1;
     String foto = "";
     String nome = "";
@@ -26,7 +27,7 @@
             <th>Desconto</th>
             <th>Bolsista</th>
             <th>Ativo</th>
-            <th>Editar.</th>
+            <th>Editar</th>
         </tr>
     </thead>
     <tbody>
