@@ -41,6 +41,7 @@
                 </div>
             </div>
         </nav>
+                <div class="container">
         <%
             int pag = 0;
             try {
@@ -70,6 +71,7 @@
             }
         %>
         <jsp:include page='<%=arquivo%>' flush="true"/>
+        </div>
         <!-- jQuery first, then Bootstrap JS -->
         <script src="../bootstrap/js/jquery.min.js"></script>
         <script src="../bootstrap/js/bootstrap.js"></script>
