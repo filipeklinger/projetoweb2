@@ -62,6 +62,9 @@
                 case 4:
                     arquivo = "verAlunos.jsp";
                     break;
+                case 5:
+                    arquivo = "verTurmas.jsp";
+                    break;
                 default:
                     arquivo = "bemVindo.html";
             }
