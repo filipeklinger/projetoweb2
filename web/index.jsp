@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
         <link rel="stylesheet" href="bootstrap/cssPersonalizado.css">
     </head>
-    <body>
+    <body class="main-bg">
         <div class="container" style="align-self: center;">
             <% //aqui recuperamos a sessao do usuario
                 String msg = (String) session.getAttribute("login");
@@ -21,19 +21,18 @@
                     out.print("</div>");
                 }%>
 
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row" id="pwd-container">
-                    <div class="col-md-4"></div>
-
-                    <div class="col-md-4">
+                    <div class="col-xs-4 col-xs-offset-4">
                         <section class="login-form">
                             <form method="POST" action="verificaLogin" role="login">
-                                <h3 class="form-links">Academia de Web2</h3>
+                                <h3 class="form-links" style="margin-bottom: 10px;">Academia de Web2</h3>
+                                <p class="text-mute" style="text-align: right">&copy;2017 Academia Web2</p>
                                 <input type="text" name="usuario" placeholder="Email" required class="form-control input-lg" />
                                 <input type="password" name="senha" class="form-control input-lg" id="password" placeholder="Senha" required="" />          
                                 <button type="submit" class="btn btn-lg btn-primary btn-block">Entrar</button>
                                 <div>
-                                    <a href="view/recuperarSenha.html">Recuperar Senha</a>
+                                    <a href="recuperarSenha.html">Recuperar Senha</a>
                                 </div>
                             </form>
                         </section>  
