@@ -25,7 +25,7 @@
                         <span class="icon-bar"></span> 
                     </button>
 
-                    <a class="navbar-brand" href="#" style="color: #fff;">Olá, <span class="capitalize"><%=session.getAttribute("login")%></span></a>
+                    <a class="navbar-brand" href="?p=0" style="color: #fff;">Olá, <span class="capitalize"><%=session.getAttribute("login")%></span></a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="myNavbar">

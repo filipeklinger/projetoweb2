@@ -31,7 +31,9 @@
         </tr>
     </thead>
     <tbody>
-        <% for(int i=0;i<5;i++){ %>
+        <% for(int i=0;i<5;i++){ 
+            //aqui coloquei o identificador recebendo o contador mas ele deve receber o id do banco
+            identificador = i+1; %>
         <tr>
 
             <td><%= foto%></td>
@@ -41,7 +43,7 @@
             <td><%= desconto%></td>
             <td><%= bolsista%></td>
             <td><%= ativo%></td>
-            <td><form action='#' method='POST'><button class='btn btn-default' name='id' type='submit' value='${identtificador}' ><span class='glyphicon glyphicon-pencil'></span></button></form></td>
+            <td><form action='#' method='POST'><button class='btn btn-default' name='id' type='submit' value='<%= identificador %>' ><span class='glyphicon glyphicon-pencil'></span></button></form></td>
         </tr>
         <% } %>
     </tbody>
