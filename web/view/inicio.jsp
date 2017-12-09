@@ -58,7 +58,7 @@
                     arquivo = "registroProfessor.html";
                     break;
                 case 3:
-                    arquivo = "editarMeuPerfil.html";
+                    arquivo = "meuPerfil.jsp";
                     break;
                 case 4:
                     arquivo = "verAlunos.jsp";
