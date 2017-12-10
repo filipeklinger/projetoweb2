@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 10/12/2017 01:33:25 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Professor" table="professor" catalog="academia_web2" optimistic-lock="version">
+        <id name="idProfessor" type="java.lang.Integer">
+            <column name="id_professor" />
+            <generator class="identity" />
+        </id>
+        <property name="identidade" type="string">
+            <column name="identidade" length="11" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="45" not-null="true" />
+        </property>
+        <property name="senha" type="string">
+            <column name="senha" length="60" not-null="true" />
+        </property>
+        <property name="foto" type="binary">
+            <column name="foto" />
+        </property>
+        <property name="primeiroNome" type="string">
+            <column name="primeiro_nome" length="45" not-null="true" />
+        </property>
+        <property name="sobrenome" type="string">
+            <column name="sobrenome" length="60" not-null="true" />
+        </property>
+        <property name="modalidade" type="string">
+            <column name="modalidade" length="45" not-null="true" />
+        </property>
+        <property name="tipoSalario" type="java.lang.Integer">
+            <column name="tipo_salario" />
+        </property>
+        <property name="administrador" type="byte">
+            <column name="administrador" not-null="true" />
+        </property>
+        <property name="sexo" type="char">
+            <column name="sexo" length="1" not-null="true" />
+        </property>
+        <property name="telefone" type="string">
+            <column name="telefone" length="45" not-null="true" />
+        </property>
+        <property name="ativo" type="byte">
+            <column name="ativo" not-null="true" />
+        </property>
+        <property name="curriculo" type="binary">
+            <column name="curriculo" />
+        </property>
+        <set name="turmas" table="turma" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idprofessor" not-null="true" />
+            </key>
+            <one-to-many class="model.Turma" />
+        </set>
+    </class>
+</hibernate-mapping>

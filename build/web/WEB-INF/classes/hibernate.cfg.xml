@@ -45,9 +45,11 @@ Contributor(s):
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/academia_web2?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password">123</property>
-    <!--ENTIDADES MAPEADAS-->
-    <mapping class="model.Aluno" file="" jar="" package="model.Aluno.java" resource="Insert"/>
-    <mapping class="model.Professor" package="model.Professor.java" resource="login"/>
+    <property name="hibernate.connection.password"/>
+    <property name="hibernate.show_sql">true</property>
+    <mapping resource="model/Turma.hbm.xml"/>
+    <mapping resource="model/Participa.hbm.xml"/>
+    <mapping resource="model/Aluno.hbm.xml"/>
+    <mapping resource="model/Professor.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

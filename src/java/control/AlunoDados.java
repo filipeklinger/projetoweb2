@@ -13,15 +13,12 @@ import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.xml.registry.infomodel.TelephoneNumber;
 import model.Aluno;
 import model.SessionHibernate;
 import org.hibernate.HibernateException;
-import org.hibernate.Session;
 
 /**
- * @author filipe
- * Precisamos a anotação @MultipartConfig para Upload de Arquivos
+ * @author filipe Precisamos a anotação @MultipartConfig para Upload de Arquivos
  */
 @MultipartConfig
 public class AlunoDados extends HttpServlet {
@@ -43,7 +40,7 @@ public class AlunoDados extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AlunoDados</title>");            
+            out.println("<title>Servlet AlunoDados</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet AlunoDados at " + request.getContextPath() + "</h1>");
@@ -69,6 +66,8 @@ public class AlunoDados extends HttpServlet {
 
     /**
      * RECEBE dados do FORM registroAluno.html
+     *
+     * @param request
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -78,7 +77,7 @@ public class AlunoDados extends HttpServlet {
         //inserindo dados no objeto aluno
         aluno.setIdentidade(request.getParameter("identidade"));
         aluno.setEmail(request.getParameter("email"));
-        aluno.setPrimeiro_nome(request.getParameter("primeiro_nome"));
+        aluno.setPrimeiroNome(request.getParameter("primeiro_nome"));
         aluno.setSobrenome(request.getParameter("sobrenome"));
         aluno.setTelefone(request.getParameter("telefone"));
         aluno.setCelular(request.getParameter("celular"));
@@ -90,33 +89,32 @@ public class AlunoDados extends HttpServlet {
         aluno.setNascimento(Date.valueOf(request.getParameter("nascimento")));
         aluno.setDesconto(Integer.parseInt("0"));//todos começam com 0 desconto
         aluno.setBolsista(getBinario(request.getParameter("bolsista")));
-        aluno.setSexo((request.getParameter("sexo")));
+        aluno.setSexo(request.getParameter("sexo").charAt(0));
         //todo aluno inicia como Inativo e fica ativo ao se inscrever em turma
         aluno.setAtivo(false);
         String msg = "0";
-        try{
+        try {
             SessionHibernate.salvaDados(aluno);
-        }catch(HibernateException e){
-            msg = "Erro: "+e;
+        } catch (HibernateException e) {
+            msg = "Erro: " + e;
         }
-        
-        
+
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AlunoDados</title><meta charset=\"utf-8\">");            
+            out.println("<title>Servlet AlunoDados</title><meta charset=\"utf-8\">");
             out.println("</head>");
             out.println("<body>");
-            if(!msg.equals("0")){
+            if (!msg.equals("0")) {
                 out.println(msg);
-            }else{
+            } else {
                 out.println("Objeto aluno criado <br>");
                 out.println("<br>ID: " + aluno.getIdentidade());
                 out.println("<br>Email: " + aluno.getEmail());
-                out.println("<br>Nome: " + aluno.getPrimeiro_nome());
+                out.println("<br>Nome: " + aluno.getPrimeiroNome());
                 out.println("<br>Sobrenome: " + aluno.getSobrenome());
                 out.println("<br>Telefone: " + aluno.getTelefone());
                 out.println("<br>Celular: " + aluno.getCelular());
@@ -126,23 +124,25 @@ public class AlunoDados extends HttpServlet {
                 out.println("<br>Complemento: " + aluno.getComplemento());
                 out.println("<br>Nascomento: " + aluno.getNascimento());
                 out.println("<br>Desconto: " + aluno.getDesconto());
-                out.println("<br>Bolsista: " + aluno.isBolsista());
+                out.println("<br>Bolsista: " + aluno.getBolsista());
                 out.println("<br>Sexo: " + aluno.getSexo());
-                out.println("<br>Ativo: " + aluno.isAtivo());
+                out.println("<br>Ativo: " + aluno.getAtivo());
                 out.println("<br>*aluno só fica ativo ao ser cadastrado em turma.");
             }
-            
-                
+
             out.println("</body>");
             out.println("</html>");
         }
-        
+
     }
-    private boolean getBinario(String a){
-            if(a.equals("1")) return true;
-                return false;
-    }    
-    
+
+    private boolean getBinario(String a) {
+        if (a.equals("1")) {
+            return true;
+        }
+        return false;
+    }
+
     /**
      * Returns a short description of the servlet.
      *
