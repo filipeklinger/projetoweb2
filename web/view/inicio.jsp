@@ -14,6 +14,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" href="../bootstrap/cssPersonalizado.css">
     </head>
     <body>
         <nav class="navbar navbar-inverse">
@@ -49,7 +50,7 @@
             } catch (NumberFormatException e) {
                 //nada
             }
-            String arquivo = "bemVindo.html";
+            String arquivo = "bemVindo.jsp";
             switch (pag) {
                 case 1:
                     arquivo = "registroAluno.html";
@@ -67,7 +68,7 @@
                     arquivo = "verTurmas.jsp";
                     break;
                 default:
-                    arquivo = "bemVindo.html";
+                    arquivo = "bemVindo.jsp";
             }
         %>
         <jsp:include page='<%=arquivo%>' flush="true"/>

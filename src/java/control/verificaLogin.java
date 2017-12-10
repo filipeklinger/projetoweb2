@@ -49,6 +49,17 @@ public class verificaLogin extends HttpServlet {
         //verifica usuario e senha
         if(usuario.equals("root") && senha.equals("123")){
             msg = usuario;
+            String nome = "Root";
+            String sobrenome = "da Silva";
+            String email = "caramba@exemplo.net";//trocar
+            Float salario = 500.00f;//trocar
+            int tsalario = 1;//trocar
+            session.setAttribute("nome", nome);
+            session.setAttribute("sobrenome", sobrenome);
+            session.setAttribute("salario", 500.0f);
+            session.setAttribute("email", email );
+            session.setAttribute("tsalario", 1);    
+            session.setAttribute("foto", "../img/testeIMG.jpg");
             end = ("view/inicio.jsp");
             
         }else{
