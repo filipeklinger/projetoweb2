@@ -39,7 +39,11 @@
                 identificador = i + 1;%>
             <tr>
 
-                <td><%= foto%></td>
+                <td>
+                        <div class="col-xs-3">
+                            <img class="img-thumbnail img3x4" src="<%= session.getAttribute("foto") %>" /> 
+                        </div>
+                </td>
                 <td><span class='capitalize'><%= nome[i] %></span></td>
                 <td><%= idade[i] %></td>
                 <td><%= sexo[i] %></td>
