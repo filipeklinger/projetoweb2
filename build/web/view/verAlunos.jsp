@@ -16,8 +16,10 @@
     String ativo = "Sim";
 %>
 <div class="container">
-    <h1>Alunos cadastrados</h1>
-
+        <div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading" ><h3>Alunos cadastrados</h3></div>
+<div style="overflow: auto;">
     <table class='table table-striped'>
         <thead>
             <tr>    
@@ -49,5 +51,7 @@
             <% }%>
         </tbody>
 
-    </table>                
+    </table> 
+</div>
+        </div>
 </div>
