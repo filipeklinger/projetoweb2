@@ -14,11 +14,14 @@
     String[] dias = {"Seg - Qua","Ter - Qui","Seg - Qua","Ter - Qui","Seg - Qua"};
     int[] nAlunos = {10,8,12,4,11};
     int maxAlunos = 20;
-    String mensalidade = "40";
+    Float mensalidade = 40.00f;
     String[] modalidade = {"Musculação","Treinamento Funcional","Aerobica","Musculação","Jump"};
 %>
 <div class="container">
-    <h1>Turmas cadastradas!</h1>
+    <div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><h3>Turmas cadastradas!</h3></div>
+  <div style="overflow: auto;">
     <table class='table table-striped'>
         <thead>
             <tr>    
@@ -27,6 +30,7 @@
                 <th>Dia</th>
                 <th>Nº Alunos</th>
                 <th>Mensalidade</th>
+                <th>Rendimento*</th>
                 <th>Modalidade</th>
                 <th>Editar</th>
             </tr>
@@ -39,12 +43,20 @@
                 <td><span class='capitalize'><%= professor[i]%></span></td>
                 <td><%= horario[i]%></td>
                 <td><%= dias[i]%></td>
-                <td><%= nAlunos[i]%>/<%= maxAlunos%></td>
-                <td>R$ <%= mensalidade%>,00</td>
+                <td><%= nAlunos[i]%> / <%= maxAlunos%></td>
+                <td>R$ <%= mensalidade%>0 </td>
+                <td>R$ <%= mensalidade*nAlunos[i] %>0</td>
                 <td><%= modalidade[i]%></td>
                 <td><form action='#' method='POST'><button class='btn btn-default' name='id' type='submit' value='<%= identificador%>' ><span class='glyphicon glyphicon-pencil'></span></button></form></td>
             </tr>
             <% }%>
         </tbody>
-    </table>    
+    </table>
+  </div>
+    </div>
+        <br>
+        <span class="label label-primary" >*Numero de alunos X mensalidade = Rendimento.</span>
+        <div style="padding-bottom: 20px;">
+            
+        </div>
 </div>

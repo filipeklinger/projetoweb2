@@ -8,16 +8,18 @@
     //Aqui vamos inicializar somente e dentro do loop vamos recuperando do banco
     int identificador = 1;
     String foto = "";
-    String nome = "";
-    String idade = "";
-    String sexo = "";
-    String desconto = "";
-    String bolsista = "";
+    String[] nome = {"Alice","Sophia","Helena","Valentina","Laura"};
+    int[] idade = {18,22,21,19,28};
+    String[] sexo = {"F","F","F","F","F"};
+    int[] desconto = {0,25,0,15,0};
+    String bolsista = "Não";
     String ativo = "Sim";
 %>
 <div class="container">
-    <h1>Alunos cadastrados</h1>
-
+        <div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading" ><h3>Alunos cadastrados</h3></div>
+<div style="overflow: auto;">
     <table class='table table-striped'>
         <thead>
             <tr>    
@@ -37,11 +39,15 @@
                 identificador = i + 1;%>
             <tr>
 
-                <td><%= foto%></td>
-                <td><span class='capitalize'><%= nome%></span></td>
-                <td><%= idade%></td>
-                <td><%= sexo%></td>
-                <td><%= desconto%></td>
+                <td>
+                        <div class="col-xs-3">
+                            <img class="img-thumbnail img3x4" src="<%= session.getAttribute("foto") %>" /> 
+                        </div>
+                </td>
+                <td><span class='capitalize'><%= nome[i] %></span></td>
+                <td><%= idade[i] %></td>
+                <td><%= sexo[i] %></td>
+                <td><%= desconto[i] %> %</td>
                 <td><%= bolsista%></td>
                 <td><%= ativo%></td>
                 <td><form action='#' method='POST'><button class='btn btn-default' name='id' type='submit' value='<%= identificador%>' ><span class='glyphicon glyphicon-pencil'></span></button></form></td>
@@ -49,5 +55,7 @@
             <% }%>
         </tbody>
 
-    </table>                
+    </table> 
+</div>
+        </div>
 </div>
