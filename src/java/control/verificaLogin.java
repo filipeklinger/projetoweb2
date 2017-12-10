@@ -21,7 +21,7 @@ public class verificaLogin extends HttpServlet {
         //processRequest(request, response);
         //se essa classe for chamada por get invalida a sessao
         String saida = request.getParameter("sair");
-        if(saida.equals("ok")){
+        if(saida != null && saida.equals("ok")){
             HttpSession session = request.getSession();
             session.invalidate();
            response.sendRedirect("index.jsp");

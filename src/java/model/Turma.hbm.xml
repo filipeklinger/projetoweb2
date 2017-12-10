@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 10/12/2017 01:33:25 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Turma" table="turma" catalog="academia_web2" optimistic-lock="version">
+        <id name="idTurma" type="java.lang.Integer">
+            <column name="id_turma" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="professor" class="model.Professor" fetch="select">
+            <column name="idprofessor" not-null="true" />
+        </many-to-one>
+        <property name="horario" type="string">
+            <column name="horario" length="45" />
+        </property>
+        <property name="maxAlunos" type="int">
+            <column name="max_alunos" not-null="true" />
+        </property>
+        <property name="valoMensalidade" type="float">
+            <column name="valo_mensalidade" precision="12" scale="0" not-null="true" />
+        </property>
+        <property name="modalidade" type="string">
+            <column name="modalidade" length="45" not-null="true" />
+        </property>
+        <set name="participas" table="participa" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_turma" not-null="true" />
+            </key>
+            <one-to-many class="model.Participa" />
+        </set>
+    </class>
+</hibernate-mapping>
