@@ -8,11 +8,11 @@
     //Aqui vamos inicializar somente e dentro do loop vamos recuperando do banco
     int identificador = 1;
     String foto = "";
-    String nome = "";
-    String idade = "";
-    String sexo = "";
-    String desconto = "";
-    String bolsista = "";
+    String[] nome = {"Alice","Sophia","Helena","Valentina","Laura"};
+    int[] idade = {18,22,21,19,28};
+    String[] sexo = {"F","F","F","F","F"};
+    int[] desconto = {0,25,0,15,0};
+    String bolsista = "Não";
     String ativo = "Sim";
 %>
 <div class="container">
@@ -40,10 +40,10 @@
             <tr>
 
                 <td><%= foto%></td>
-                <td><span class='capitalize'><%= nome%></span></td>
-                <td><%= idade%></td>
-                <td><%= sexo%></td>
-                <td><%= desconto%></td>
+                <td><span class='capitalize'><%= nome[i] %></span></td>
+                <td><%= idade[i] %></td>
+                <td><%= sexo[i] %></td>
+                <td><%= desconto[i] %> %</td>
                 <td><%= bolsista%></td>
                 <td><%= ativo%></td>
                 <td><form action='#' method='POST'><button class='btn btn-default' name='id' type='submit' value='<%= identificador%>' ><span class='glyphicon glyphicon-pencil'></span></button></form></td>
