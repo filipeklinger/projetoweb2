@@ -1,3 +1,4 @@
+<div class="main-bg">
 <div class="container inicio" id="add_style">
             <h1 id="page_title">Área de Administração</h1>
         <section class="col-md-3">
@@ -12,4 +13,5 @@
             }  
             %>
         </section>
+</div>
 </div>

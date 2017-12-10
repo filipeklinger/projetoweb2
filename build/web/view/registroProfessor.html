@@ -1,122 +1,123 @@
-<div class="container">
+<div id="screen">
+    <div class="container form_page">
+        <div class="row margem">
+            <form class="form-horizontal" action="ProfDados" method="POST" enctype="multipart/form-data">
+                <fieldset>
 
-    <div class="row margem">
-        <form class="form-horizontal" action="ProfDados" method="POST" enctype="multipart/form-data">
-            <fieldset>
+                    <!-- Form Name -->
+                    <legend><a href="inicio.jsp"><span class="glyphicon glyphicon-chevron-left"></span> Voltar </a>| Cadastro - Professor</legend>
 
-                <!-- Form Name -->
-                <legend><a href="inicio.jsp"><span class="glyphicon glyphicon-chevron-left"></span> Voltar </a>| Cadastro - Professor</legend>
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="primeiro_nome">Primeiro nome</label>  
+                        <div class="col-md-4">
+                            <input type="text" name="primeiro_nome" id="primeiro_nome" placeholder="Fulano" maxlength="60"  class="form-control input-md" required="">
+                            <div class="help-block">*minimo de 3 caracteres</div>
+                        </div>
+                    </div>
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="sobrenome">Sobrenome</label>  
+                        <div class="col-md-4">
+                            <input id="sobrenome" name="sobrenome" type="text" placeholder="da silva" maxlength="60"  class="form-control input-md" required="">
+                            <div class="help-block">*minimo de 6 caracteres</div>
+                        </div>
+                    </div>
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="telefone">Telefone</label>
+                        <div class="col-sm-4">
+                            <input id="telefone" name="telefone" type="text" placeholder="987654321" maxlength="12"  class="form-control input-md" required="">
+                        </div>
+                    </div>
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="celular">Celular</label>
+                        <div class="col-sm-4">
+                            <input id="telefone" name="celular" type="text" placeholder="987654321" maxlength="12"  class="form-control input-md" required="">
 
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="primeiro_nome">Primeiro nome</label>  
-                    <div class="col-md-4">
-                        <input type="text" name="primeiro_nome" id="primeiro_nome" placeholder="Fulano" maxlength="60"  class="form-control input-md" required="">
-                        <div class="help-block">*minimo de 3 caracteres</div>
+                        </div>
                     </div>
-                </div>
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="sobrenome">Sobrenome</label>  
-                    <div class="col-md-4">
-                        <input id="sobrenome" name="sobrenome" type="text" placeholder="da silva" maxlength="60"  class="form-control input-md" required="">
-                        <div class="help-block">*minimo de 6 caracteres</div>
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="identidade">Identidade</label>  
+                        <div class="col-md-4">
+                            <input id="identidade" name="identidade" type="text" placeholder="11223344556" maxlength="11"  class="form-control input-md" required="">
+                        </div>
                     </div>
-                </div>
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-sm-4 control-label" for="telefone">Telefone</label>
-                    <div class="col-sm-4">
-                        <input id="telefone" name="telefone" type="text" placeholder="987654321" maxlength="12"  class="form-control input-md" required="">
-                    </div>
-                </div>
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-sm-4 control-label" for="celular">Celular</label>
-                    <div class="col-sm-4">
-                        <input id="telefone" name="celular" type="text" placeholder="987654321" maxlength="12"  class="form-control input-md" required="">
 
-                    </div>
-                </div>
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="identidade">Identidade</label>  
-                    <div class="col-md-4">
-                        <input id="identidade" name="identidade" type="text" placeholder="11223344556" maxlength="11"  class="form-control input-md" required="">
-                    </div>
-                </div>
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="email">Email</label>  
+                        <div class="col-md-4">
+                            <input id="email" name="email" type="text" placeholder="exemplo@dominio.com" OnKeyUp="ehEmail();" maxlength="80"  class="form-control input-md" required="">
 
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="email">Email</label>  
-                    <div class="col-md-4">
-                        <input id="email" name="email" type="text" placeholder="exemplo@dominio.com" OnKeyUp="ehEmail();" maxlength="80"  class="form-control input-md" required="">
+                        </div>
+                    </div>
 
-                    </div>
-                </div>
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="dnasc">Data de nascimento</label>  
+                        <div class="col-md-4">
+                            <input id="dnasc" name="nascimento" type="date" placeholder="dd-mm-aaaa" maxlength="10" OnKeyUp="formatar(this, '##-##-####');" class="form-control input-md" required="">
 
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="dnasc">Data de nascimento</label>  
-                    <div class="col-md-4">
-                        <input id="dnasc" name="nascimento" type="date" placeholder="dd-mm-aaaa" maxlength="10" OnKeyUp="formatar(this, '##-##-####');" class="form-control input-md" required="">
+                        </div>
+                    </div>
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="cidade">Cidade</label>  
+                        <div class="col-md-4">
+                            <input id="cidade" name="cidade" type="text" placeholder="Rio de janeiro" maxlength="60"  class="form-control input-md" required="">
+                        </div>
+                    </div>
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="bairro">Bairro</label>  
+                        <div class="col-md-4">
+                            <input id="bairro" name="bairro" type="text" placeholder="Jabour" maxlength="60"  class="form-control input-md" required="">
+                        </div>
+                    </div>
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="rua">Rua</label>  
+                        <div class="col-md-4">
+                            <input id="rua" name="rua" type="text" placeholder="Rua x, numero 1" maxlength="60"  class="form-control input-md" required="">
+                        </div>
+                    </div>
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="complemento">Complemento</label>  
+                        <div class="col-md-4">
+                            <input id="complemento" name="complemento" type="text" placeholder="apartamento" maxlength="60"  class="form-control input-md" required="">
+                        </div>
+                    </div>
 
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="foto">Foto</label>  
+                        <div class="col-md-4">
+                            <input id="foto" name="complemento" type="file" class="form-control input-md" required="">
+                            <div class="help-block">*maximo 16MB.</div>
+                        </div>
                     </div>
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="sexo">Sexo</label>  
+                        <div class="col-md-2">
+                            <label class="col-md-2 control-label">Masculino</label>
+                            <input id="sexo" name="sexo" type="radio" value="m" class="form-control input-md" required="">
+                        </div>
+                        <div class="col-md-2">
+                            <label class="col-md-2 control-label">Feminino</label>
+                            <input id="sexo" name="sexo" type="radio" value="f" class="form-control input-md" required="">
+                        </div>
+                    </div>
+                    <!--Fim -->
+                </fieldset>
+                <div class="centro">
+                    <input id="enviar" type="submit" class="btn btn-primary btn-primary" value="Enviar" />
+                    <input type="reset"  class="btn btn-primary btn-primary" value="Resetar" />
                 </div>
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="cidade">Cidade</label>  
-                    <div class="col-md-4">
-                        <input id="cidade" name="cidade" type="text" placeholder="Rio de janeiro" maxlength="60"  class="form-control input-md" required="">
-                    </div>
-                </div>
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="bairro">Bairro</label>  
-                    <div class="col-md-4">
-                        <input id="bairro" name="bairro" type="text" placeholder="Jabour" maxlength="60"  class="form-control input-md" required="">
-                    </div>
-                </div>
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="rua">Rua</label>  
-                    <div class="col-md-4">
-                        <input id="rua" name="rua" type="text" placeholder="Rua x, numero 1" maxlength="60"  class="form-control input-md" required="">
-                    </div>
-                </div>
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="complemento">Complemento</label>  
-                    <div class="col-md-4">
-                        <input id="complemento" name="complemento" type="text" placeholder="apartamento" maxlength="60"  class="form-control input-md" required="">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="foto">Foto</label>  
-                    <div class="col-md-4">
-                        <input id="foto" name="complemento" type="file" class="form-control input-md" required="">
-                        <div class="help-block">*maximo 16MB.</div>
-                    </div>
-                </div>
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="sexo">Sexo</label>  
-                    <div class="col-md-2">
-                        <label class="col-md-2 control-label">Masculino</label>
-                        <input id="sexo" name="sexo" type="radio" value="m" class="form-control input-md" required="">
-                    </div>
-                    <div class="col-md-2">
-                        <label class="col-md-2 control-label">Feminino</label>
-                        <input id="sexo" name="sexo" type="radio" value="f" class="form-control input-md" required="">
-                    </div>
-                </div>
-                <!--Fim -->
-            </fieldset>
-            <div class="centro">
-                <input id="enviar" type="submit" class="btn btn-primary btn-primary" value="Enviar" />
-                <input type="reset"  class="btn btn-primary btn-primary" value="Resetar" />
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 </div>
