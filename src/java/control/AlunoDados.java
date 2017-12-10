@@ -112,7 +112,7 @@ public class AlunoDados extends HttpServlet {
                 out.println(msg);
             } else {
                 out.println("Objeto aluno criado <br>");
-                out.println("<br>ID: " + aluno.getIdentidade());
+                out.println("<br>Identidade: " + aluno.getIdentidade());
                 out.println("<br>Email: " + aluno.getEmail());
                 out.println("<br>Nome: " + aluno.getPrimeiroNome());
                 out.println("<br>Sobrenome: " + aluno.getSobrenome());
@@ -122,7 +122,7 @@ public class AlunoDados extends HttpServlet {
                 out.println("<br>Rua: " + aluno.getRua());
                 out.println("<br>Cidade: " + aluno.getCidade());
                 out.println("<br>Complemento: " + aluno.getComplemento());
-                out.println("<br>Nascomento: " + aluno.getNascimento());
+                out.println("<br>Nascimento: " + aluno.getNascimento());
                 out.println("<br>Desconto: " + aluno.getDesconto());
                 out.println("<br>Bolsista: " + aluno.getBolsista());
                 out.println("<br>Sexo: " + aluno.getSexo());
