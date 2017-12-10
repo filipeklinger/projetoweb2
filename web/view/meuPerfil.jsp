@@ -7,9 +7,9 @@
 <%
     //aqui vamos setar as variaveis
     String identidade = "98.432.234-4";
-    String email = "root@exemplo.com";
-    String nome = "root";
-    String sobrenome = "da silva";
+    String email = session.getAttribute("email").toString();
+    String nome = session.getAttribute("nome").toString();
+    String sobrenome = session.getAttribute("sobrenome").toString();
     String modalidade = "Jump";
     String tipoSalario = "por hora";
     String sexo = "m";
@@ -19,10 +19,8 @@
     Date nascimento = new Date(timeStamp * 1000);//multiplica por mil pq nao atribuimos os milisegundos
     //adicionar campo Curriculo e Foto
 %>
-
-<h1>Meu Perfil</h1>
 <div class="container">
-
+<h1>Meu Perfil</h1>
     <div class="row margem">
         <form class="form-horizontal" action="ProfDados" method="POST" enctype="multipart/form-data">
             <fieldset>
