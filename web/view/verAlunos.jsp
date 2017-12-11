@@ -40,16 +40,15 @@
                 </td>
                 <td><span class='capitalize'><%= aluno.getPrimeiroNome() %></span></td>
                 <td><%= aluno.getNascimento() %></td>
-                <td><%= aluno.getSexo() %></td>
+                <td><%= aluno.getSexoInterface() %></td>
                 <td><%= aluno.getDesconto() %> %</td>
-                <td><%= aluno.getBolsista().toString() %></td>
-                <td><%= aluno.getAtivo().toString() %></td>
+                <td><%= aluno.getBolsistaInterface() %></td>
+                <td><%= aluno.getAtivoInterface() %></td>
                 <td><form action='../EditaAluno' method='POST'><button class='btn btn-default' name='id' type='submit' value='<%= aluno.getIdAluno() %>' ><span class='glyphicon glyphicon-pencil'></span></button></form></td>
             </tr>
             <%      }
                 }catch(NullPointerException e){
                     out.print("Erro ao obter do banco: " + e + "<br>");
-                    //Out.print(e);
                 }
             %>
         </tbody>

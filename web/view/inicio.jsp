@@ -42,7 +42,23 @@
                 </div>
             </div>
         </nav>
-        <%
+<% //aqui recuperamos a sessao do usuario
+                String msg = (String) session.getAttribute("msg");
+                if (!(msg == null)) {
+                    if(msg.contains("sucesso")){
+                        out.print("<div class='alert alert-success alert-dismissible' role='alert'>");
+                        out.print("<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>");
+                        out.print("<strong> " + msg + " </strong>");
+                        out.print("</div>");
+                    }else{
+                        out.print("<div class='alert alert-danger alert-dismissible' role='alert'>");
+                        out.print("<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>");
+                        out.print("<strong> " + msg + " </strong>");
+                        out.print("</div>");
+                    }
+                session.setAttribute("msg", null);
+                }
+                
             int pag = 0;
             try {
                 pag = Integer.parseInt(request.getParameter("p"));

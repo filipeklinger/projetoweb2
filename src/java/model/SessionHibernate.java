@@ -25,7 +25,6 @@ import org.hibernate.transform.AliasToBeanResultTransformer;
 public class SessionHibernate {
     
     public static void salvaDados(Object E){
-        
         SessionFactory sF;
         sF = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
         Session session = sF.openSession();
@@ -60,20 +59,8 @@ public class SessionHibernate {
         SessionFactory sF;
         sF = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
         Session session = sF.openSession();
-        try{
-            String consulta = ("SELECT (id_aluno) as idAluno, identidade, email, (primeiro_nome) as primeiroNome, sobrenome, telefone, celular, bairro, rua, cidade, nascimento, desconto, bolsista, ativo, sexo FROM aluno");
-            session.beginTransaction();
-            //list = session.createQuery(consulta).list();
-            Query query = session.createSQLQuery(consulta);
-            query.setResultTransformer(new AliasToBeanResultTransformer(Aluno.class));
-            list = query.list();
-            session.getTransaction().commit();
-        }catch(HibernateException e){
-            printStackTrace(e);
-        }
-        session.close();
+        return session.createQuery("from Aluno").list();
         
-        return list;
     }
     public static Aluno recuperaIdAlunos(int id){
         List<Aluno> list = null;

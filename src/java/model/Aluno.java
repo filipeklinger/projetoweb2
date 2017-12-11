@@ -26,16 +26,16 @@ public class Aluno  implements java.io.Serializable {
      private byte[] foto;
      private Date nascimento;
      private int desconto;
-     private Byte bolsista;
+     private Boolean bolsista;
      private Character sexo;
-     private Byte ativo;
+     private Boolean ativo;
      private Set participas = new HashSet(0);
 
     public Aluno() {
     }
 
 	
-    public Aluno(Integer idAluno,String identidade, String email, String primeiroNome, String sobrenome, String telefone, String celular, String bairro, String rua, String cidade, Date nascimento, int desconto, Byte bolsista, Byte ativo, Character sexo) {
+    public Aluno(Integer idAluno,String identidade, String email, String primeiroNome, String sobrenome, String telefone, String celular, String bairro, String rua, String cidade, Date nascimento, int desconto, Boolean bolsista, Boolean ativo, Character sexo) {
         this.idAluno = idAluno;
         this.identidade = identidade;
         this.email = email;
@@ -52,7 +52,7 @@ public class Aluno  implements java.io.Serializable {
         this.ativo = ativo;
         this.sexo = sexo;
     }
-    public Aluno(String identidade, String email, String primeiroNome, String sobrenome, String telefone, String celular, String bairro, String rua, String cidade, String complemento, byte[] foto, Date nascimento, int desconto, Byte bolsista, Character sexo, Byte ativo, Set participas) {
+    public Aluno(String identidade, String email, String primeiroNome, String sobrenome, String telefone, String celular, String bairro, String rua, String cidade, String complemento, byte[] foto, Date nascimento, int desconto, Boolean bolsista, Character sexo, Boolean ativo, Set participas) {
        this.identidade = identidade;
        this.email = email;
        this.primeiroNome = primeiroNome;
@@ -174,37 +174,43 @@ public class Aluno  implements java.io.Serializable {
     public void setDesconto(int desconto) {
         this.desconto = desconto;
     }
-    public String getBolsista() {
-        if(this.bolsista == '1'){
+    public Boolean getBolsista() {
+        return this.bolsista;
+    }
+    public String getBolsistaInterface() {
+        if(this.bolsista == true){
             return "Sim";
         }else{
             return "Não";
         }
     }
-    
-    public void setBolsista(Byte bolsista) {
+    public void setBolsista(Boolean bolsista) {
         this.bolsista = bolsista;
     }
-    public String getSexo() {
+    public Character getSexo() {
+        return this.sexo;
+    }
+    public String getSexoInterface() {
         if(this.sexo == 'm'){
             return "Masculino";
         }else{
             return "Feminino";
         }
     }
-    
     public void setSexo(Character sexo) {
         this.sexo = sexo;
     }
-    public String getAtivo() {
-        if(this.ativo == 1){
+    public Boolean getAtivo() {
+        return this.ativo;
+    }
+    public String getAtivoInterface() {
+        if(this.ativo == true){
             return "Ativo";
         }else{
             return "Inativo";
         }
     }
-    
-    public void setAtivo(Byte ativo) {
+    public void setAtivo(Boolean ativo) {
         this.ativo = ativo;
     }
     public Set getParticipas() {
