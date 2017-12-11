@@ -17,7 +17,7 @@
     Float mensalidade = 40.00f;
     String[] modalidade = {"Musculação","Treinamento Funcional","Aerobica","Musculação","Jump"};
 %>
-<div class="container">
+<div class="container  form_page">
     <div class="panel panel-default">
   <!-- Default panel contents -->
   <div class="panel-heading"><h3>Turmas cadastradas!</h3></div>

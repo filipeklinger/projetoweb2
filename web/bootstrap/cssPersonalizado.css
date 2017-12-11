@@ -93,7 +93,7 @@ form[role=login] {
     background-color: #5d5d5d;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;   
+    height: 93.5vh;   
 }
 .inicio{
     padding: 0 2% 5% 2%;
@@ -137,7 +137,7 @@ form[role=login] {
 
 .form_page{
     padding: 5px 15px 0 15px;
-    margin-bottom: 15px;
+    margin-bottom: 0;
     background-color: #f0f0f0a0;
 }
 
@@ -147,22 +147,10 @@ form[role=login] {
     background-size: cover;
 }
 
-#foto
-{
-	font-weight: bold;
-	text-align: center;
-	padding: 1em 0;
-	margin: 1em 0;
-	color: #555;
-	border: 2px dashed #555;
-	border-radius: 7px;
-	cursor: default;
-}
-
-#foto.hover
-{
-	color: #f00;
-	border-color: #f00;
-	border-style: solid;
-	box-shadow: inset 0 3px 4px #888;
+.others{
+    height: 100vh;
+    background-color: grey;
+    background-image: url(../img/gym2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }

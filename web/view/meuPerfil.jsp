@@ -19,7 +19,7 @@
     Date nascimento = new Date(timeStamp * 1000);//multiplica por mil pq nao atribuimos os milisegundos
     //adicionar campo Curriculo e Foto
 %>
-<div class="container">
+<div class="container  form_page">
 <h1>Meu Perfil</h1>
     <div class="row margem">
         <form class="form-horizontal" action="ProfDados" method="POST" enctype="multipart/form-data">

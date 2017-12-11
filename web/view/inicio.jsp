@@ -8,7 +8,7 @@
 <!doctype html>
 <html lang="br">
     <head>
-        <title>Intranet!</title>
+        <title>Intranet</title>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -16,8 +16,8 @@
         <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
         <link rel="stylesheet" href="../bootstrap/cssPersonalizado.css">
     </head>
-    <body>
-        <nav class="navbar navbar-inverse">
+    <body class="others">
+        <nav class="navbar navbar-inverse" style="margin-bottom: 0">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
