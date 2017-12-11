@@ -88,10 +88,10 @@ public class AlunoDados extends HttpServlet {
         //aluno.setFoto();Criar um metodo para isso
         aluno.setNascimento(Date.valueOf(request.getParameter("nascimento")));
         aluno.setDesconto(Integer.parseInt("0"));//todos começam com 0 desconto
-        aluno.setBolsista(getBinario(request.getParameter("bolsista")));
+        //aluno.setBolsista(getBinario(request.getParameter("bolsista")));
         aluno.setSexo(request.getParameter("sexo").charAt(0));
         //todo aluno inicia como Inativo e fica ativo ao se inscrever em turma
-        aluno.setAtivo(false);
+        //aluno.setAtivo(false);
         String msg = "0";
         try {
             SessionHibernate.salvaDados(aluno);

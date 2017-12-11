@@ -4,17 +4,10 @@
     Author     : filipe
 --%>
 
-<%
-    //Aqui vamos inicializar somente e dentro do loop vamos recuperando do banco
-    int identificador = 1;
-    String foto = "";
-    String[] nome = {"Alice","Sophia","Helena","Valentina","Laura"};
-    int[] idade = {18,22,21,19,28};
-    String[] sexo = {"F","F","F","F","F"};
-    int[] desconto = {0,25,0,15,0};
-    String bolsista = "Não";
-    String ativo = "Sim";
-%>
+<%@page import="model.Aluno"%>
+<%@page import="java.util.List"%>
+<%@page import="model.SessionHibernate"%>
+
 <div class="container">
         <div class="panel panel-default">
   <!-- Default panel contents -->
@@ -34,9 +27,10 @@
             </tr>
         </thead>
         <tbody>
-            <% for (int i = 0; i < 5; i++) {
-                //aqui coloquei o identificador recebendo o contador mas ele deve receber o id do banco
-                identificador = i + 1;%>
+            <% try{
+                    List<Aluno> list = SessionHibernate.recuperaAlunos();
+                    for(Aluno aluno:list){
+                %>
             <tr>
 
                 <td>
@@ -44,15 +38,20 @@
                             <img class="img-thumbnail img3x4" src="<%= session.getAttribute("foto") %>" /> 
                         </div>
                 </td>
-                <td><span class='capitalize'><%= nome[i] %></span></td>
-                <td><%= idade[i] %></td>
-                <td><%= sexo[i] %></td>
-                <td><%= desconto[i] %> %</td>
-                <td><%= bolsista%></td>
-                <td><%= ativo%></td>
-                <td><form action='#' method='POST'><button class='btn btn-default' name='id' type='submit' value='<%= identificador%>' ><span class='glyphicon glyphicon-pencil'></span></button></form></td>
+                <td><span class='capitalize'><%= aluno.getPrimeiroNome() %></span></td>
+                <td><%= aluno.getNascimento() %></td>
+                <td><%= aluno.getSexo() %></td>
+                <td><%= aluno.getDesconto() %> %</td>
+                <td><%= aluno.getBolsista().toString() %></td>
+                <td><%= aluno.getAtivo().toString() %></td>
+                <td><form action='#' method='POST'><button class='btn btn-default' name='id' type='submit' value='<%= aluno.getIdentidade() %>' ><span class='glyphicon glyphicon-pencil'></span></button></form></td>
             </tr>
-            <% }%>
+            <%      }
+                }catch(NullPointerException e){
+                    out.print("Erro ao obter do banco: " + e + "<br>");
+                    //Out.print(e);
+                }
+            %>
         </tbody>
 
     </table> 
