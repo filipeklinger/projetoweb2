@@ -51,8 +51,9 @@ public class verificaLogin extends HttpServlet {
         String msg;
         //verifica usuario e senha
         List<Professor> list = SessionHibernate.recuperaProfessor(usuario,senha);
-        Professor prof = list.get(0);
-        if(prof != null){
+        
+        if(list.size() > 0){
+            Professor prof = list.get(0);
             msg = prof.getPrimeiroNome();
             Float salario = 500.00f;//trocar
             int tsalario = 1;//trocar
@@ -61,7 +62,7 @@ public class verificaLogin extends HttpServlet {
             session.setAttribute("email", prof.getEmail() );
             session.setAttribute("salario", 500.0f);
             session.setAttribute("tsalario", 1);    
-            session.setAttribute("foto", "../img/testeIMG.jpg");
+            session.setAttribute("foto", "../img/user.png");
             end = ("view/inicio.jsp");
             
         }else{
