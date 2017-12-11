@@ -74,9 +74,8 @@ public class EditaAluno extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
-        int id = Integer.parseInt(request.getParameter("id"));
-        List<Aluno> list = SessionHibernate.recuperaIdAlunos(id);
-        Aluno aluno = list.get(0);
+        int id = Integer.parseInt(request.getParameter("id")); 
+        Aluno aluno = SessionHibernate.recuperaIdAlunos(id);
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");

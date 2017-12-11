@@ -34,6 +34,7 @@ public class SessionHibernate {
         session.getTransaction().commit();
         session.close();
     }
+    
     public static List recuperaAlunos(){
         List<Aluno> list = null;
         SessionFactory sF;
@@ -54,7 +55,7 @@ public class SessionHibernate {
         
         return list;
     }
-    public static List recuperaIdAlunos(int id){
+    public static Aluno recuperaIdAlunos(int id){
         List<Aluno> list = null;
         SessionFactory sF;
         sF = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
@@ -71,8 +72,8 @@ public class SessionHibernate {
             printStackTrace(e);
         }
         session.close();
-        
-        return list;
+        Aluno aluno = list.get(0);
+        return aluno;
     }
     
 }
