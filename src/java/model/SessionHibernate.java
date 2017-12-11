@@ -34,7 +34,27 @@ public class SessionHibernate {
         session.getTransaction().commit();
         session.close();
     }
-    
+   public static List recuperaProfessor(String email,String senha){
+        List<Professor> list = null;
+        SessionFactory sF;
+        sF = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+        Session session = sF.openSession();
+        try{
+            String consulta = ("SELECT (primeiro_nome) as primeiroNome,sobrenome,email FROM professor where email = :email and senha =:senha");
+            session.beginTransaction();
+            Query query = session.createSQLQuery(consulta)
+                    .setParameter("email",email)
+                    .setParameter("senha", senha);
+            query.setResultTransformer(new AliasToBeanResultTransformer(Professor.class));
+            list = query.list();
+            session.getTransaction().commit();
+        }catch(HibernateException e){
+            printStackTrace(e);
+        }
+        session.close();
+        
+        return list;
+    }
     public static List recuperaAlunos(){
         List<Aluno> list = null;
         SessionFactory sF;

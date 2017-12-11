@@ -21,7 +21,7 @@ import org.hibernate.HibernateException;
  * @author filipe Precisamos a anotação @MultipartConfig para Upload de Arquivos
  */
 @MultipartConfig
-public class AlunoDados extends HttpServlet {
+public class RegistraAlunoDados extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>

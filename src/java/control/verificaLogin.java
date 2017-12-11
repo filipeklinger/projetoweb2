@@ -2,12 +2,15 @@ package control;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.Professor;
+import model.SessionHibernate;
 
 /**
  *
@@ -47,17 +50,16 @@ public class verificaLogin extends HttpServlet {
         String end;
         String msg;
         //verifica usuario e senha
-        if(usuario.equals("root") && senha.equals("123")){
-            msg = usuario;
-            String nome = "Root";
-            String sobrenome = "da Silva";
-            String email = "caramba@exemplo.net";//trocar
+        List<Professor> list = SessionHibernate.recuperaProfessor(usuario,senha);
+        Professor prof = list.get(0);
+        if(prof != null){
+            msg = prof.getPrimeiroNome();
             Float salario = 500.00f;//trocar
             int tsalario = 1;//trocar
-            session.setAttribute("nome", nome);
-            session.setAttribute("sobrenome", sobrenome);
+            session.setAttribute("nome", prof.getPrimeiroNome());
+            session.setAttribute("sobrenome", prof.getSobrenome());
+            session.setAttribute("email", prof.getEmail() );
             session.setAttribute("salario", 500.0f);
-            session.setAttribute("email", email );
             session.setAttribute("tsalario", 1);    
             session.setAttribute("foto", "../img/testeIMG.jpg");
             end = ("view/inicio.jsp");
