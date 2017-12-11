@@ -35,7 +35,8 @@ public class Aluno  implements java.io.Serializable {
     }
 
 	
-    public Aluno(String identidade, String email, String primeiroNome, String sobrenome, String telefone, String celular, String bairro, String rua, String cidade, Date nascimento, int desconto, Byte bolsista, Byte ativo, Character sexo) {
+    public Aluno(Integer idAluno,String identidade, String email, String primeiroNome, String sobrenome, String telefone, String celular, String bairro, String rua, String cidade, Date nascimento, int desconto, Byte bolsista, Byte ativo, Character sexo) {
+        this.idAluno = idAluno;
         this.identidade = identidade;
         this.email = email;
         this.primeiroNome = primeiroNome;

@@ -1,66 +1,65 @@
-<?xml version="1.0"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 10/12/2017 01:33:25 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="model.Aluno" table="aluno" catalog="academia_web2" optimistic-lock="version">
-        <id name="idAluno" type="java.lang.Integer">
-            <column name="id_aluno" />
-            <generator class="identity" />
-        </id>
-        <property name="identidade" type="string">
-            <column name="identidade" length="11" not-null="true" />
-        </property>
-        <property name="email" type="string">
-            <column name="email" length="45" not-null="true" />
-        </property>
-        <property name="primeiroNome" type="string">
-            <column name="primeiro_nome" length="45" not-null="true" />
-        </property>
-        <property name="sobrenome" type="string">
-            <column name="sobrenome" length="60" not-null="true" />
-        </property>
-        <property name="telefone" type="string">
-            <column name="telefone" length="11" not-null="true" />
-        </property>
-        <property name="celular" type="string">
-            <column name="celular" length="11" not-null="true" />
-        </property>
-        <property name="bairro" type="string">
-            <column name="bairro" length="45" not-null="true" />
-        </property>
-        <property name="rua" type="string">
-            <column name="rua" length="60" not-null="true" />
-        </property>
-        <property name="cidade" type="string">
-            <column name="cidade" length="45" not-null="true" />
-        </property>
-        <property name="complemento" type="string">
-            <column name="complemento" length="45" />
-        </property>
-        <property name="foto" type="binary">
-            <column name="foto" />
-        </property>
-        <property name="nascimento" type="date">
-            <column name="nascimento" length="10" not-null="true" />
-        </property>
-        <property name="desconto" type="int">
-            <column name="desconto" not-null="true" />
-        </property>
-        <property name="bolsista" type="java.lang.Boolean">
-            <column name="bolsista" not-null="true" sql-type="tinyint" />
-        </property>
-        <property name="sexo" type="java.lang.Character">
-            <column name="sexo" length="1" />
-        </property>
-        <property name="ativo" type="java.lang.Boolean">
-            <column name="ativo" not-null="true" sql-type="tinyint"/>
-        </property>
-        <set name="participas" table="participa" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="id_aluno" not-null="true" />
-            </key>
-            <one-to-many class="model.Participa" />
-        </set>
-    </class>
+  <class catalog="academia_web2" name="model.Aluno" optimistic-lock="version" table="aluno">
+    <id name="idAluno" type="java.lang.Integer">
+      <column name="id_aluno"/>
+      <generator class="identity"/>
+    </id>
+    <property name="identidade" type="string">
+      <column length="11" name="identidade" not-null="true"/>
+    </property>
+    <property name="email" type="string">
+      <column length="45" name="email" not-null="true"/>
+    </property>
+    <property name="primeiroNome" type="string">
+      <column length="45" name="primeiro_nome" not-null="true"/>
+    </property>
+    <property name="sobrenome" type="string">
+      <column length="60" name="sobrenome" not-null="true"/>
+    </property>
+    <property name="telefone" type="string">
+      <column length="11" name="telefone" not-null="true"/>
+    </property>
+    <property name="celular" type="string">
+      <column length="11" name="celular" not-null="true"/>
+    </property>
+    <property name="bairro" type="string">
+      <column length="45" name="bairro" not-null="true"/>
+    </property>
+    <property name="rua" type="string">
+      <column length="60" name="rua" not-null="true"/>
+    </property>
+    <property name="cidade" type="string">
+      <column length="45" name="cidade" not-null="true"/>
+    </property>
+    <property name="complemento" type="string">
+      <column length="45" name="complemento"/>
+    </property>
+    <property name="foto" type="binary">
+      <column name="foto"/>
+    </property>
+    <property name="nascimento" type="date">
+      <column length="10" name="nascimento" not-null="true"/>
+    </property>
+    <property name="desconto" type="int">
+      <column name="desconto" not-null="true"/>
+    </property>
+    <property name="bolsista" type="java.lang.Boolean">
+      <column name="bolsista" not-null="true" sql-type="tinyint"/>
+    </property>
+    <property name="sexo" type="java.lang.Character">
+      <column length="1" name="sexo"/>
+    </property>
+    <property name="ativo" type="java.lang.Boolean">
+      <column name="ativo" not-null="true" sql-type="tinyint"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="participas" table="participa">
+      <key>
+        <column name="id_aluno" not-null="true"/>
+      </key>
+      <one-to-many class="model.Participa"/>
+    </set>
+  </class>
 </hibernate-mapping>

@@ -44,7 +44,7 @@
                 <td><%= aluno.getDesconto() %> %</td>
                 <td><%= aluno.getBolsista().toString() %></td>
                 <td><%= aluno.getAtivo().toString() %></td>
-                <td><form action='#' method='POST'><button class='btn btn-default' name='id' type='submit' value='<%= aluno.getIdentidade() %>' ><span class='glyphicon glyphicon-pencil'></span></button></form></td>
+                <td><form action='../EditaAluno' method='POST'><button class='btn btn-default' name='id' type='submit' value='<%= aluno.getIdAluno() %>' ><span class='glyphicon glyphicon-pencil'></span></button></form></td>
             </tr>
             <%      }
                 }catch(NullPointerException e){

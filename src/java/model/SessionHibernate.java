@@ -23,6 +23,7 @@ import org.hibernate.transform.AliasToBeanResultTransformer;
  * para ser salvo no sql pelo Hibernate
  */
 public class SessionHibernate {
+    
     public static void salvaDados(Object E){
         
         SessionFactory sF;
@@ -39,7 +40,7 @@ public class SessionHibernate {
         sF = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
         Session session = sF.openSession();
         try{
-            String consulta = ("SELECT identidade, email, (primeiro_nome) as primeiroNome, sobrenome, telefone, celular, bairro, rua, cidade, nascimento, desconto, bolsista, ativo, sexo FROM aluno");
+            String consulta = ("SELECT (id_aluno) as idAluno, identidade, email, (primeiro_nome) as primeiroNome, sobrenome, telefone, celular, bairro, rua, cidade, nascimento, desconto, bolsista, ativo, sexo FROM aluno");
             session.beginTransaction();
             //list = session.createQuery(consulta).list();
             Query query = session.createSQLQuery(consulta);
@@ -53,4 +54,25 @@ public class SessionHibernate {
         
         return list;
     }
+    public static List recuperaIdAlunos(int id){
+        List<Aluno> list = null;
+        SessionFactory sF;
+        sF = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+        Session session = sF.openSession();
+        try{
+            String consulta = ("SELECT (id_aluno) as idAluno, identidade, email, (primeiro_nome) as primeiroNome, sobrenome, telefone, celular, bairro, rua, cidade, nascimento, desconto, bolsista, ativo, sexo FROM aluno where id_aluno = :id");
+            session.beginTransaction();
+            //list = session.createQuery(consulta).list();
+            Query query = session.createSQLQuery(consulta).setParameter("id", id);
+            query.setResultTransformer(new AliasToBeanResultTransformer(Aluno.class));
+            list = query.list();
+            session.getTransaction().commit();
+        }catch(HibernateException e){
+            printStackTrace(e);
+        }
+        session.close();
+        
+        return list;
+    }
+    
 }

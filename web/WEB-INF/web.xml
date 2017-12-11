@@ -8,6 +8,10 @@
         <servlet-name>AlunoDados</servlet-name>
         <servlet-class>control.AlunoDados</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EditaAluno</servlet-name>
+        <servlet-class>control.EditaAluno</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>verificaLogin</servlet-name>
         <url-pattern>/verificaLogin</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>AlunoDados</servlet-name>
         <url-pattern>/AlunoDados</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditaAluno</servlet-name>
+        <url-pattern>/EditaAluno</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
