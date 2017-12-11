@@ -32,7 +32,7 @@
                                 <input type="password" name="senha" class="form-control input-lg" id="password" placeholder="Senha" required="" />          
                                 <button type="submit" class="btn btn-lg btn-primary btn-block">Entrar</button>
                                 <div>
-                                    <a href="recuperarSenha.html">Recuperar Senha</a>
+                                    <a href="view/recuperarSenha.html">Recuperar Senha</a>
                                 </div>
                             </form>
                         </section>  

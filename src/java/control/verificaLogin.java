@@ -70,7 +70,7 @@ public class verificaLogin extends HttpServlet {
             end = ("index.jsp");
         }
         session.setAttribute("login",msg);
-        //aqui deve ser REDIRECT!
+        
         response.sendRedirect(end);
         
     }
