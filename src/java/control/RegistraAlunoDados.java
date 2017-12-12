@@ -104,42 +104,7 @@ public class RegistraAlunoDados extends HttpServlet {
             session.setAttribute("msg", msg);
         }
         response.sendRedirect("view/inicio.jsp");
-        /*
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. 
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet AlunoDados</title><meta charset=\"utf-8\">");
-            out.println("</head>");
-            out.println("<body>");
-            if (!msg.equals("0")) {
-                out.println(msg);
-            } else {
-                out.println("Objeto aluno criado <br>");
-                out.println("<br>Identidade: " + aluno.getIdentidade());
-                out.println("<br>Email: " + aluno.getEmail());
-                out.println("<br>Nome: " + aluno.getPrimeiroNome());
-                out.println("<br>Sobrenome: " + aluno.getSobrenome());
-                out.println("<br>Telefone: " + aluno.getTelefone());
-                out.println("<br>Celular: " + aluno.getCelular());
-                out.println("<br>Bairro: " + aluno.getBairro());
-                out.println("<br>Rua: " + aluno.getRua());
-                out.println("<br>Cidade: " + aluno.getCidade());
-                out.println("<br>Complemento: " + aluno.getComplemento());
-                out.println("<br>Nascimento: " + aluno.getNascimento());
-                out.println("<br>Desconto: " + aluno.getDesconto());
-                out.println("<br>Bolsista: " + aluno.getBolsista());
-                out.println("<br>Sexo: " + aluno.getSexo());
-                out.println("<br>Ativo: " + aluno.getAtivo());
-                out.println("<br>*aluno só fica ativo ao ser cadastrado em turma.");
-            }
-
-            out.println("</body>");
-            out.println("</html>");
-        }
-        */
+        
 
     }
 
